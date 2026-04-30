@@ -19,6 +19,7 @@ export function ProfileSettings({
   const [resumeText, setResumeText] = useState('');
   const [linkedin, setLinkedin] = useState(profile.contact.linkedin);
   const [github, setGithub] = useState(profile.contact.github);
+  const [email, setEmail] = useState(profile.contact.email);
   const [name, setName] = useState(profile.name);
 
   // File Preview States
@@ -70,7 +71,8 @@ export function ProfileSettings({
           contact: {
             ...profile.contact,
             linkedin,
-            github
+            github,
+            email
           },
           about: generatedData?.about || profile.about,
           skills: generatedData?.skills || profile.skills
@@ -82,7 +84,8 @@ export function ProfileSettings({
           contact: {
             ...profile.contact,
             linkedin,
-            github
+            github,
+            email
           }
         });
       }
@@ -229,6 +232,16 @@ export function ProfileSettings({
                 {/* External Links */}
                 <div className="space-y-4">
                   <h3 className="text-sm font-mono text-cyan-400 uppercase tracking-wider">External Synapse Links</h3>
+                  <div className="relative">
+                    <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                    <input 
+                      type="email" 
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      className="w-full bg-black/30 border border-white/10 rounded-lg pl-10 pr-3 py-3 text-white focus:border-cyan-500 outline-none transition-colors text-sm"
+                      placeholder="Email Address"
+                    />
+                  </div>
                   <div className="relative">
                     <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                     <input 

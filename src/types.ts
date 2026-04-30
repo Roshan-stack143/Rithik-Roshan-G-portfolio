@@ -16,6 +16,22 @@ export interface Education {
   institution: string;
   degree: string;
   period: string;
+  cgpa?: string;
+}
+
+export interface Internship {
+  role: string;
+  company: string;
+  period: string;
+  location?: string;
+  points: string[];
+}
+
+export interface Responsibility {
+  title: string;
+  organization: string;
+  period?: string;
+  points: string[];
 }
 
 export interface UserProfile {
@@ -28,6 +44,8 @@ export interface UserProfile {
   certifications: string[];
   achievements: string[];
   education: Education[];
+  internships: Internship[];
+  responsibilities: Responsibility[];
   areasOfInterest: string[];
   contact: {
     email: string;
@@ -84,35 +102,81 @@ export const defaultProfile: UserProfile = {
       imageUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop"
     }
   ],
+  internships: [
+    {
+      role: "AI & Python Intern",
+      company: "Britex Incorporation",
+      period: "Feb 2026 – Present",
+      location: "Kumarapalayam, India",
+      points: [
+        "Worked on developing AI-based applications using Python",
+        "Performed data preprocessing and basic model implementation",
+        "Contributed to building intelligent features for real-world use cases"
+      ]
+    },
+    {
+      role: "AI Development Intern",
+      company: "Cluster Wise Internship Program",
+      period: "Feb 2026 – Present",
+      points: [
+        "Participated in hands-on AI development tasks and real-time problem solving",
+        "Applied Python and AI concepts to build practical solutions",
+        "Collaborated in team-based development activities"
+      ]
+    }
+  ],
+  responsibilities: [
+    {
+      title: "Joint Secretary",
+      organization: "Hackalite Club (Sasurie College of Engineering)",
+      points: [
+        "Supporting technical event planning and innovation activities",
+        "Promoting technology learning among students",
+        "Assisting in organizing technical programs"
+      ]
+    },
+    {
+      title: "Campus Ambassador",
+      organization: "Aadhya Event",
+      points: [
+        "Promoting event participation among students",
+        "Coordinating with participants",
+        "Supporting communication and engagement"
+      ]
+    }
+  ],
   certifications: [
-    "HP Life Skills Certification Program",
-    "Data Analytics & AI certifications - Great Learning",
-    "Professional certification courses - Novitech",
-    "Oracle Certified Foundations Associate - Oracle",
-    "Cybersecurity Professional Certificate - Google",
-    "JavaScript Essentials 1 - Cisco",
-    "EBPL Certification - Naan Mudhalvan Skill Development",
-    "AWS Academy Graduate - Generative AI Foundations",
-    "AWS Academy Graduate - Machine Learning Foundations",
-    "Completed Excel Workshop - Thulir Infotech",
-    "Training programs from NASSCOM"
+    "AWS Academy Graduate – Generative AI Foundations",
+    "AWS Academy Graduate – Machine Learning Foundations",
+    "Google Cybersecurity Professional Certificate",
+    "Oracle Certified Foundations Associate",
+    "Cisco JavaScript Essentials 1",
+    "NASSCOM Certification",
+    "HP LIFE Skills Program",
+    "Novitech Certifications (AI, Data Analytics, Cybersecurity, IoT)",
+    "EBPL Certification – Naan Mudhalvan",
+    "Excel Workshop – Thulir Infotech",
+    "Campus Ambassador Certificate"
   ],
   achievements: [],
   education: [
     {
       institution: "Sasurie College of Engineering, Tirupur",
-      degree: "B.Tech in Artificial Intelligence and Data Science (CGPA: 8.2)",
-      period: "July 2023 - May 2027"
+      degree: "B.Tech in Artificial Intelligence and Data Science",
+      period: "July 2023 - May 2027",
+      cgpa: "CGPA: 8.2 (Upto 5th Sem)"
     },
     {
       institution: "Government Boys Higher Secondary School, Uthukuli",
-      degree: "Higher Secondary Education (+2) (80%)",
-      period: "June 2021 - May 2023"
+      degree: "Higher Secondary Education (+2)",
+      period: "June 2021 - May 2023",
+      cgpa: "80%"
     },
     {
       institution: "Government Boys Higher Secondary School, Uthukuli",
-      degree: "Secondary School Leaving Certificate (SSLC) (100%)",
-      period: "June 2020 - April 2021"
+      degree: "Secondary School Leaving Certificate (SSLC)",
+      period: "June 2020 - April 2021",
+      cgpa: "100%"
     }
   ],
   areasOfInterest: [
